@@ -1,211 +1,905 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Privacy Policy - Merchly</title>
-  <link rel="icon" type="image/png" href="/favicon.png">
+  <title>Merchly — All-in-One Mobile Commerce & Storefront Platform</title>
+  <link rel="icon" type="image/png" href="favicon.png">
+  <meta name="description" content="Launch a luxury online store in minutes right from your phone. Sell fashion, beauty, e-books, courses, and digital assets with 0% platform fees.">
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <!-- Tailwind CSS CDN with custom config -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            display: ['"Space Grotesk"', 'sans-serif'],
+          },
+          colors: {
+            obsidian: {
+              950: '#070C14',
+              900: '#0B131F',
+              800: '#0F172A',
+              700: '#1E293B',
+              600: '#334155',
+            },
+            forest: {
+              900: '#002B1B',
+              800: '#004E32',
+              700: '#026743',
+              600: '#048657',
+            },
+            mint: {
+              300: '#75F0BC',
+              400: '#4EDEA3',
+              500: '#2ECE8B',
+            }
+          },
+          animation: {
+            'pulse-subtle': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+            'float-slow': 'float 6s ease-in-out infinite',
+            'float-delayed': 'float 6s ease-in-out 3s infinite',
+          },
+          keyframes: {
+            float: {
+              '0%, 100%': { transform: 'translateY(0px)' },
+              '50%': { transform: 'translateY(-12px)' },
+            }
+          }
+        }
+      }
+    }
+  </script>
   <style>
-    :root {
-      --bg: #0B1326;
-      --surface: #162035;
-      --surface-border: #222A3E;
-      --text: #DBE2FD;
-      --text-muted: #8CA0B3;
-      --accent: #4EDEA3;
-      --primary: #D4AF37;
+    /* Custom glass and gradient effects */
+    .glass-nav {
+      background: rgba(11, 19, 31, 0.82);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     }
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
+    .glass-card {
+      background: rgba(15, 23, 42, 0.65);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.07);
     }
-    body {
-      background-color: var(--bg);
-      color: var(--text);
-      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      line-height: 1.6;
-      padding: 2rem 1rem;
+    .glass-card-glow {
+      background: linear-gradient(135deg, rgba(0, 78, 50, 0.25) 0%, rgba(15, 23, 42, 0.8) 100%);
+      border: 1px solid rgba(78, 222, 163, 0.25);
     }
-    .container {
-      max-width: 800px;
-      margin: 0 auto;
+    .glow-emerald {
+      box-shadow: 0 0 45px -5px rgba(0, 78, 50, 0.45), 0 0 25px -5px rgba(78, 222, 163, 0.25);
     }
-    header {
-      margin-bottom: 2.5rem;
-      border-b: 1px solid var(--surface-border);
-      padding-bottom: 1.5rem;
+    .glow-mint-btn {
+      box-shadow: 0 4px 20px -2px rgba(78, 222, 163, 0.4);
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
     }
-    .brand {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      font-family: 'Space Grotesk', sans-serif;
-      font-weight: 700;
-      font-size: 1.5rem;
-      color: #FFFFFF;
-      text-decoration: none;
-      margin-bottom: 1rem;
+    .glow-mint-btn:hover {
+      box-shadow: 0 6px 28px 2px rgba(78, 222, 163, 0.6);
+      transform: translateY(-2px);
     }
-    .brand span {
-      color: var(--accent);
+    .glow-mint-btn:active {
+      transform: translateY(0);
     }
-    h1 {
-      font-size: 2rem;
-      font-weight: 800;
-      color: #FFFFFF;
-      margin-bottom: 0.5rem;
+    /* Hide scrollbars for smooth tab navigation */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
     }
-    .effective-date {
-      color: var(--text-muted);
-      font-size: 0.875rem;
-    }
-    .card {
-      background-color: var(--surface);
-      border: 1px solid var(--surface-border);
-      border-radius: 1rem;
-      padding: 1.75rem;
-      margin-bottom: 1.5rem;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
-    }
-    h2 {
-      font-size: 1.25rem;
-      font-weight: 700;
-      color: #FFFFFF;
-      margin-bottom: 0.75rem;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-    h2::before {
-      content: '';
-      display: inline-block;
-      width: 6px;
-      height: 18px;
-      background-color: var(--accent);
-      border-radius: 3px;
-    }
-    p, ul {
-      color: var(--text);
-      font-size: 0.95rem;
-      margin-bottom: 1rem;
-    }
-    p:last-child, ul:last-child {
-      margin-bottom: 0;
-    }
-    ul {
-      padding-left: 1.5rem;
-    }
-    li {
-      margin-bottom: 0.4rem;
-    }
-    strong {
-      color: #FFFFFF;
-    }
-    a {
-      color: var(--accent);
-      text-decoration: none;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
-    footer {
-      text-align: center;
-      color: var(--text-muted);
-      font-size: 0.85rem;
-      margin-top: 3rem;
-      padding-top: 1.5rem;
-      border-t: 1px solid var(--surface-border);
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
     }
   </style>
 </head>
-<body>
-  <div class="container">
-    <header>
-      <a href="/" class="brand">Merchly<span>.</span></a>
-      <h1>Privacy Policy</h1>
-      <div class="effective-date">Effective Date: November 16, 2026 | Last Updated: November 16, 2026</div>
-    </header>
+<body class="bg-obsidian-900 text-slate-100 font-sans antialiased selection:bg-mint-400 selection:text-obsidian-950 overflow-x-hidden">
 
-    <div class="card">
-      <h2>1. Introduction</h2>
-      <p>Welcome to <strong>Merchly</strong> ("we", "our", or "us"). We provide commerce infrastructure, storefront hosting, and mobile merchant management applications across Android, Web, and Progressive Web Applications (PWA).</p>
-      <p>This Privacy Policy explains how we collect, use, store, disclose, and protect your information when you use our mobile application, web storefronts, and related services (collectively, the "Platform"). By creating an account or accessing our services, you agree to the collection and use of information in accordance with this policy.</p>
-    </div>
-
-    <div class="card">
-      <h2>2. Information We Collect</h2>
-      <p>We collect information to provide, maintain, and optimize our merchant and storefront services:</p>
-      <ul>
-        <li><strong>Account Information:</strong> When you register, we collect your email address, merchant name, store identifier, and authentication credentials through our secure authentication provider (Supabase Auth).</li>
-        <li><strong>Store & Product Data:</strong> We store merchant-submitted product titles, descriptions, pricing, inventory quantities, variant configurations, digital download attributes, and course curricula.</li>
-        <li><strong>Digital Assets & Media:</strong> Product images, promotional banners, downloadable digital documents, and course materials uploaded by merchants are securely stored and delivered via edge object storage.</li>
-        <li><strong>Customer & Transaction Records:</strong> When customers place orders through your storefront, we process customer contact details, itemized order specifications, and delivery addresses necessary for fulfillment.</li>
-        <li><strong>Device & Network Information:</strong> We may collect standard technical data, such as IP addresses, operating system version, and browser/app identifiers to ensure optimal caching and offline synchronization.</li>
-      </ul>
-    </div>
-
-    <div class="card">
-      <h2>3. Payment Processing & Financial Information</h2>
-      <p>Merchly <strong>never collects, stores, or processes credit card numbers, CVVs, or sensitive banking details directly on our servers or device applications</strong>.</p>
-      <p>All financial checkout transactions are handled through certified third-party payment gateways (including Paystack, PayPal, and supported bank transfer settlement processors). When making a payment, buyers interact directly with the payment provider's encrypted tokenization endpoint.</p>
-    </div>
-
-    <div class="card">
-      <h2>4. How We Use Your Information</h2>
-      <p>We use collected data solely for legitimate business operations and application functionality, including:</p>
-      <ul>
-        <li>Authenticating merchants and providing private, tenant-isolated merchant dashboard controls.</li>
-        <li>Rendering customized, live storefronts across Web and native Android applications.</li>
-        <li>Delivering itemized order confirmation and fulfillment emails to customers.</li>
-        <li>Accurately tracking Cloud Edge Storage consumption against merchant allocations.</li>
-        <li>Enforcing security policies, preventing unauthorized access, and detecting fraudulent activities.</li>
-      </ul>
-    </div>
-
-    <div class="card">
-      <h2>5. Data Storage, Security & Third-Party Service Providers</h2>
-      <p>We take data security seriously. All network transmissions are protected using industry-standard Transport Layer Security (TLS/HTTPS). We partner with reputable cloud infrastructure providers:</p>
-      <ul>
-        <li><strong>Supabase:</strong> For relational database persistence, user authentication, and row-level security (RLS) enforcement.</li>
-        <li><strong>Bunny.net:</strong> For high-performance, globally distributed edge object storage and CDN asset delivery.</li>
-        <li><strong>Resend / Edge Email Handlers:</strong> For automated transactional notification delivery.</li>
-      </ul>
-      <p>We strictly enforce multi-tenant isolation, ensuring that each merchant's database records and assets remain inaccessible to unauthorized parties.</p>
-    </div>
-
-    <div class="card">
-      <h2>6. Data Retention and Account Deletion</h2>
-      <p>We retain your personal and store information for as long as your account is active or as necessary to comply with legal obligations, resolve disputes, and enforce our agreements.</p>
-      <p><strong>Account Deletion:</strong> You have the right to request deletion of your account, catalog, and associated personal data at any time. You can initiate account deletion through the Merchant Settings panel or by emailing <a href="mailto:privacy@merchlystore.com">privacy@merchlystore.com</a>. Upon verification, all associated store records and uploaded digital assets will be permanently purged within 30 days.</p>
-    </div>
-
-    <div class="card">
-      <h2>7. Children's Privacy</h2>
-      <p>Our Platform is intended for individuals aged 18 and older, or those operating legal commercial enterprises with appropriate adult consent. We do not knowingly collect personal information from children under the age of 13. If we discover that a child under 13 has provided us with personal information, we will delete such data immediately.</p>
-    </div>
-
-    <div class="card">
-      <h2>8. Changes to This Privacy Policy</h2>
-      <p>We may update our Privacy Policy periodically to reflect architectural enhancements or regulatory changes. We will notify you of any material changes by updating the "Last Updated" date at the top of this policy and by posting an in-app notice when appropriate.</p>
-    </div>
-
-    <div class="card">
-      <h2>9. Contact Us</h2>
-      <p>If you have questions, feedback, or data privacy requests regarding this Privacy Policy, please reach out to our privacy compliance team:</p>
-      <ul>
-        <li><strong>Email:</strong> <a href="mailto:privacy@merchlystore.com">privacy@merchlystore.com</a></li>
-        <li><strong>Support Desk:</strong> <a href="mailto:support@jobreadypro.co">support@jobreadypro.co</a></li>
-        <li><strong>Website:</strong> <a href="https://jobreadypro.co">https://jobreadypro.co</a></li>
-      </ul>
-    </div>
-
-    <footer>
-      <p>&copy; 2026 Merchly Technologies. All rights reserved.</p>
-    </footer>
+  <!-- Ambient Background Glows -->
+  <div class="fixed inset-0 pointer-events-none overflow-hidden z-0">
+    <div class="absolute -top-40 left-1/2 -translate-x-1/2 w-[700px] h-[500px] bg-gradient-to-b from-forest-800/25 via-mint-400/10 to-transparent blur-[120px] rounded-full"></div>
+    <div class="absolute top-[40%] -left-64 w-[500px] h-[500px] bg-forest-900/30 blur-[130px] rounded-full"></div>
+    <div class="absolute top-[65%] -right-64 w-[550px] h-[550px] bg-mint-400/5 blur-[140px] rounded-full"></div>
   </div>
+
+  <!-- 1. Sticky Navigation Bar -->
+  <header class="sticky top-0 z-50 glass-nav transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-18 py-3.5 flex items-center justify-between">
+      <!-- Left: Merchly Logo -->
+      <a href="#" class="flex items-center gap-2.5 group">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-forest-800 via-forest-700 to-mint-400 flex items-center justify-center p-0.5 shadow-md shadow-forest-800/40 group-hover:scale-105 transition-transform">
+          <div class="w-full h-full bg-obsidian-900 rounded-[10px] flex items-center justify-center">
+            <svg class="w-5 h-5 text-mint-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/>
+              <path d="M3 6h18"/>
+              <path d="M16 10a4 4 0 0 1-8 0"/>
+            </svg>
+          </div>
+        </div>
+        <div class="flex flex-col">
+          <div class="flex items-center gap-1.5">
+            <span class="font-display font-bold text-xl tracking-tight text-white">Merchly</span>
+            <span class="text-[10px] font-bold uppercase tracking-wider px-1.5 py-0.5 rounded-full bg-mint-400/15 text-mint-400 border border-mint-400/30">v2.4</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Center Links (Desktop) -->
+      <nav class="hidden md:flex items-center gap-7 text-sm font-medium text-slate-300">
+        <a href="#features" class="hover:text-mint-400 transition-colors">Features</a>
+        <a href="#storefronts" class="hover:text-mint-400 transition-colors">Storefronts</a>
+        <a href="#comparison" class="hover:text-mint-400 transition-colors">Pricing & Savings</a>
+        <a href="#offline" class="hover:text-mint-400 transition-colors flex items-center gap-1.5">
+          <span>Offline Mode</span>
+          <span class="w-1.5 h-1.5 rounded-full bg-mint-400 animate-pulse"></span>
+        </a>
+        <a href="#faq" class="hover:text-mint-400 transition-colors">Docs</a>
+      </nav>
+
+      <!-- Right Actions -->
+      <div class="flex items-center gap-3">
+        <a href="https://jobreadypro.co" class="hidden sm:inline-block text-sm font-medium text-slate-300 hover:text-white px-3 py-2 transition-colors">
+          Sign In
+        </a>
+        <a href="https://jobreadypro.co" class="glow-mint-btn inline-flex items-center gap-1.5 px-4 sm:px-5 py-2 sm:py-2.5 rounded-xl bg-mint-400 text-obsidian-950 font-semibold text-xs sm:text-sm tracking-wide">
+          <span>Start Free Trial</span>
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="relative z-10">
+
+    <!-- 2. Hero Section -->
+    <section class="relative pt-12 pb-20 md:pt-20 md:pb-28 overflow-hidden">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <!-- Top Announcement Badge -->
+        <div class="flex justify-center mb-6">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-obsidian-800/80 border border-mint-400/30 text-xs sm:text-sm text-slate-200 shadow-sm backdrop-blur-md">
+            <span class="flex h-2 w-2 relative">
+              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-mint-400 opacity-75"></span>
+              <span class="relative inline-flex rounded-full h-2 w-2 bg-mint-400"></span>
+            </span>
+            <span class="font-medium text-mint-400 font-mono text-[11px] sm:text-xs">✨ Version 2.4 Live</span>
+            <span class="text-slate-500">•</span>
+            <span class="text-slate-300">Built for Modern Mobile Commerce</span>
+          </div>
+        </div>
+
+        <!-- Main Headline -->
+        <div class="text-center max-w-4xl mx-auto">
+          <h1 class="font-display text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-[1.12]">
+            Your Complete Storefront, <br class="hidden sm:inline" />
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-mint-300 via-mint-400 to-emerald-400">
+              Built and Run Right From Your Phone.
+            </span>
+          </h1>
+          
+          <!-- Sub-headline -->
+          <p class="mt-6 text-base sm:text-lg lg:text-xl text-slate-300 max-w-2xl mx-auto leading-relaxed font-normal">
+            Launch a luxury online store in minutes. Sell fashion & beauty collections, apparel, e-books, online courses, and digital downloads. 
+            <span class="text-white font-medium">1-tap home screen app install</span> for your buyers, <span class="text-white font-medium">20 GB cloud storage</span>, and <span class="text-mint-400 font-semibold">0% platform fees</span>.
+          </p>
+
+          <!-- Dual Call to Actions -->
+          <div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3.5 sm:gap-4">
+            <a href="https://jobreadypro.co" class="w-full sm:w-auto glow-mint-btn inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl bg-mint-400 text-obsidian-950 font-bold text-sm sm:text-base tracking-wide shadow-lg">
+              <span>Start Free 7-Day Trial</span>
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+              </svg>
+            </a>
+            
+            <a href="#storefronts" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-obsidian-800/80 hover:bg-obsidian-700/80 text-slate-200 border border-slate-700/70 hover:border-mint-400/40 transition-all text-sm sm:text-base font-semibold backdrop-blur-md">
+              <svg class="w-4 h-4 text-mint-400" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M8 5v14l11-7z"/>
+              </svg>
+              <span>View Demo Storefronts</span>
+            </a>
+          </div>
+
+          <!-- Social Proof Bar -->
+          <div class="mt-8 flex flex-wrap items-center justify-center gap-y-2 gap-x-4 sm:gap-x-6 text-xs sm:text-sm text-slate-400">
+            <div class="flex items-center gap-1.5">
+              <div class="flex -space-x-1.5">
+                <div class="w-6 h-6 rounded-full bg-slate-700 border border-obsidian-900 flex items-center justify-center text-[10px] text-mint-300 font-bold">JD</div>
+                <div class="w-6 h-6 rounded-full bg-forest-800 border border-obsidian-900 flex items-center justify-center text-[10px] text-white font-bold">AL</div>
+                <div class="w-6 h-6 rounded-full bg-emerald-600 border border-obsidian-900 flex items-center justify-center text-[10px] text-white font-bold">SK</div>
+              </div>
+              <span class="text-slate-300 font-medium">Trusted by 10,000+ creators</span>
+            </div>
+            <span class="hidden sm:inline text-slate-600">•</span>
+            <div class="flex items-center gap-1 text-mint-400 font-medium">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+              </svg>
+              <span>0% Platform Fees</span>
+            </div>
+            <span class="hidden sm:inline text-slate-600">•</span>
+            <div class="flex items-center gap-1 text-slate-300">
+              <svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+              </svg>
+              <span>No Credit Card Required</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3D Smartphone Hero Mockup Representation -->
+        <div class="mt-14 sm:mt-18 max-w-sm sm:max-w-md md:max-w-lg mx-auto relative">
+          
+          <!-- Ambient Glow around device -->
+          <div class="absolute inset-0 bg-gradient-to-tr from-forest-800/40 via-mint-400/20 to-transparent blur-3xl -z-10 rounded-[3rem]"></div>
+
+          <!-- Floating Notification 1: Order Received -->
+          <div class="absolute -top-5 sm:-top-8 -right-3 sm:-right-8 z-30 animate-float-slow">
+            <div class="glass-card px-4 py-2.5 rounded-2xl shadow-2xl border border-mint-400/30 flex items-center gap-3 backdrop-blur-xl">
+              <div class="w-8 h-8 rounded-xl bg-forest-800/90 text-mint-400 flex items-center justify-center font-bold text-xs border border-mint-400/30">
+                ⚡
+              </div>
+              <div class="text-left">
+                <div class="text-[11px] text-slate-400 font-medium">New Order Received</div>
+                <div class="text-xs sm:text-sm font-bold text-white">+$145.00 <span class="text-mint-400 text-[10px] font-normal">• Stripe Direct</span></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Floating Notification 2: PWA Installed -->
+          <div class="absolute -bottom-6 -left-4 sm:-left-10 z-30 animate-float-delayed">
+            <div class="glass-card px-4 py-2.5 rounded-2xl shadow-2xl border border-slate-700/60 flex items-center gap-3 backdrop-blur-xl">
+              <div class="w-8 h-8 rounded-xl bg-obsidian-800 text-mint-400 flex items-center justify-center text-sm border border-slate-700">
+                📲
+              </div>
+              <div class="text-left">
+                <div class="text-[11px] text-slate-400 font-medium">Customer Saved App</div>
+                <div class="text-xs sm:text-sm font-bold text-slate-200">1-Tap PWA Installed</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Phone Chassis -->
+          <div class="relative mx-auto rounded-[42px] p-3 bg-gradient-to-b from-slate-700 via-slate-800 to-obsidian-950 shadow-2xl shadow-obsidian-950/90 border border-slate-600/40">
+            <!-- Screen Bezel -->
+            <div class="relative bg-obsidian-950 rounded-[34px] overflow-hidden border border-slate-800">
+              
+              <!-- Phone Dynamic Island / Speaker Notch -->
+              <div class="absolute top-2.5 left-1/2 -translate-x-1/2 w-28 h-5 bg-obsidian-900 rounded-full z-20 flex items-center justify-center gap-2 border border-slate-800/60">
+                <div class="w-2.5 h-2.5 rounded-full bg-slate-900"></div>
+                <div class="w-2 h-2 rounded-full bg-slate-800"></div>
+              </div>
+
+              <!-- Phone Content Area (Mockup Luxury Storefront) -->
+              <div class="pt-9 pb-5 px-3.5 bg-gradient-to-b from-obsidian-900 via-obsidian-950 to-obsidian-900 min-h-[540px] flex flex-col justify-between">
+                
+                <!-- In-app Store Header -->
+                <div>
+                  <div class="flex items-center justify-between pb-3 border-b border-slate-800/80">
+                    <div class="flex items-center gap-2">
+                      <div class="w-7 h-7 rounded-lg bg-forest-800 flex items-center justify-center text-xs font-bold text-mint-400 border border-mint-400/30">
+                        M
+                      </div>
+                      <div>
+                        <div class="text-xs font-bold text-white tracking-tight">AURA ATELIER</div>
+                        <div class="text-[9px] text-mint-400 font-mono">aura.merchlystore.com</div>
+                      </div>
+                    </div>
+                    <div class="flex items-center gap-1.5">
+                      <span class="text-[9px] px-1.5 py-0.5 rounded bg-emerald-950/80 text-emerald-300 border border-emerald-800/60 font-medium">● 0% Fees</span>
+                      <div class="relative w-6 h-6 rounded-lg bg-slate-800/80 flex items-center justify-center text-slate-300">
+                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
+                        <span class="absolute -top-1 -right-1 w-3 h-3 rounded-full bg-mint-400 text-obsidian-950 text-[8px] font-bold flex items-center justify-center">2</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Storefront Promo Banner -->
+                  <div class="mt-3 p-3 rounded-xl bg-gradient-to-r from-forest-800/80 to-obsidian-800 border border-forest-700/50 flex items-center justify-between">
+                    <div>
+                      <span class="text-[9px] uppercase tracking-wider font-semibold text-mint-300">Spring Capsule 26</span>
+                      <h4 class="text-xs font-bold text-white">Silk Trench & Linen Set</h4>
+                      <p class="text-[10px] text-slate-400">Exclusive limited mobile release</p>
+                    </div>
+                    <div class="text-right">
+                      <span class="text-xs font-extrabold text-mint-400">$180</span>
+                    </div>
+                  </div>
+
+                  <!-- Mini Product Grid -->
+                  <div class="mt-3 grid grid-cols-2 gap-2">
+                    <!-- Item 1 -->
+                    <div class="bg-obsidian-800/60 rounded-xl p-2 border border-slate-800 flex flex-col justify-between">
+                      <div class="h-20 rounded-lg bg-gradient-to-br from-slate-800 to-forest-900/60 flex flex-col items-center justify-center p-2 relative overflow-hidden">
+                        <span class="text-2xl">🧥</span>
+                        <span class="absolute top-1 right-1 text-[8px] px-1 py-0.5 rounded bg-obsidian-950/80 text-slate-300">Apparel</span>
+                      </div>
+                      <div class="mt-1.5">
+                        <div class="text-[11px] font-semibold text-slate-200 truncate">Overcast Wool Coat</div>
+                        <div class="flex items-center justify-between mt-1">
+                          <span class="text-[11px] font-bold text-white">$145.00</span>
+                          <span class="text-[9px] text-mint-400">Free Ship</span>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- Item 2 -->
+                    <div class="bg-obsidian-800/60 rounded-xl p-2 border border-slate-800 flex flex-col justify-between">
+                      <div class="h-20 rounded-lg bg-gradient-to-br from-slate-800 to-forest-900/60 flex flex-col items-center justify-center p-2 relative overflow-hidden">
+                        <span class="text-2xl">📖</span>
+                        <span class="absolute top-1 right-1 text-[8px] px-1 py-0.5 rounded bg-obsidian-950/80 text-mint-400 font-mono">PDF + EPUB</span>
+                      </div>
+                      <div class="mt-1.5">
+                        <div class="text-[11px] font-semibold text-slate-200 truncate">The Minimalist Lookbook</div>
+                        <div class="flex items-center justify-between mt-1">
+                          <span class="text-[11px] font-bold text-white">$24.00</span>
+                          <span class="text-[9px] text-slate-400">Instant</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Checkout Bar inside Demo -->
+                  <div class="mt-3 p-2.5 rounded-xl bg-obsidian-800/90 border border-slate-700/60 flex items-center justify-between">
+                    <div class="flex items-center gap-2">
+                      <div class="w-6 h-6 rounded-md bg-mint-400 text-obsidian-950 font-bold text-xs flex items-center justify-center">✓</div>
+                      <div>
+                        <div class="text-[10px] font-semibold text-slate-200">Apple Pay & Google Pay</div>
+                        <div class="text-[8px] text-slate-400">Instant 1-Tap Checkout</div>
+                      </div>
+                    </div>
+                    <span class="text-[10px] font-bold text-mint-400 bg-mint-400/10 px-2 py-0.5 rounded border border-mint-400/20">Active</span>
+                  </div>
+                </div>
+
+                <!-- Phone Bottom Bar Navigation -->
+                <div class="pt-2 border-t border-slate-800/80 flex items-center justify-around text-slate-400 text-[10px]">
+                  <span class="text-mint-400 font-semibold flex flex-col items-center"><span>🏬</span><span>Store</span></span>
+                  <span class="flex flex-col items-center"><span>📦</span><span>Orders</span></span>
+                  <span class="flex flex-col items-center"><span>📊</span><span>Analytics</span></span>
+                  <span class="flex flex-col items-center"><span>⚙️</span><span>Settings</span></span>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 3. "Built for Every Type of Creator" (Interactive Category Cards / Tabs) -->
+    <section id="storefronts" class="py-20 bg-obsidian-950/60 border-t border-b border-slate-800/60 relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-3xl mx-auto mb-12">
+          <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-forest-900/60 border border-forest-700 text-xs font-semibold text-mint-400 mb-3">
+            <span>Tailored Storefront Engines</span>
+          </div>
+          <h2 class="font-display text-2xl sm:text-4xl font-extrabold text-white tracking-tight">
+            Built for Every Type of Creator & Merchant
+          </h2>
+          <p class="mt-3 text-sm sm:text-base text-slate-400">
+            Whether you sell physical luxury items or digital knowledge products, Merchly provides custom native workflows tuned for conversions.
+          </p>
+        </div>
+
+        <!-- Desktop & Mobile Grid of 4 Core Categories -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          
+          <!-- Card 1: Fashion & Apparel -->
+          <div class="glass-card hover:glass-card-glow rounded-3xl p-6 sm:p-8 transition-all duration-300 group border border-slate-800/80 hover:border-mint-400/30">
+            <div class="flex items-start justify-between">
+              <div class="w-12 h-12 rounded-2xl bg-forest-800/80 border border-mint-400/20 text-2xl flex items-center justify-center group-hover:scale-110 transition-transform">
+                👗
+              </div>
+              <span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-slate-800 text-slate-300 border border-slate-700">Physical Goods</span>
+            </div>
+            
+            <h3 class="mt-5 text-xl font-bold text-white group-hover:text-mint-300 transition-colors">
+              Fashion, Beauty & Apparel
+            </h3>
+            <p class="mt-2 text-sm text-slate-400 leading-relaxed">
+              Showcase high-end photography with editorial lookbook layouts, apparel size & color swatches, automated low-stock warnings, and smart combined shipping calculations.
+            </p>
+
+            <div class="mt-6 pt-5 border-t border-slate-800/80 flex flex-wrap gap-2 text-xs">
+              <span class="px-2.5 py-1 rounded-lg bg-obsidian-900 text-slate-300 border border-slate-800">✨ Editorial Lookbooks</span>
+              <span class="px-2.5 py-1 rounded-lg bg-obsidian-900 text-slate-300 border border-slate-800">🎨 Color Swatches</span>
+              <span class="px-2.5 py-1 rounded-lg bg-obsidian-900 text-slate-300 border border-slate-800">📦 Weight-based Shipping</span>
+            </div>
+          </div>
+
+          <!-- Card 2: E-Books & Publishers -->
+          <div class="glass-card hover:glass-card-glow rounded-3xl p-6 sm:p-8 transition-all duration-300 group border border-slate-800/80 hover:border-mint-400/30">
+            <div class="flex items-start justify-between">
+              <div class="w-12 h-12 rounded-2xl bg-forest-800/80 border border-mint-400/20 text-2xl flex items-center justify-center group-hover:scale-110 transition-transform">
+                📚
+              </div>
+              <span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-slate-800 text-slate-300 border border-slate-700">Digital Publishing</span>
+            </div>
+            
+            <h3 class="mt-5 text-xl font-bold text-white group-hover:text-mint-300 transition-colors">
+              E-Books, Authors & Publishers
+            </h3>
+            <p class="mt-2 text-sm text-slate-400 leading-relaxed">
+              Distraction-free mobile in-browser reader, free Chapter 0 sample previews, estimated reading timers, and instant PDF/EPUB delivery straight to buyer email inboxes.
+            </p>
+
+            <div class="mt-6 pt-5 border-t border-slate-800/80 flex flex-wrap gap-2 text-xs">
+              <span class="px-2.5 py-1 rounded-lg bg-obsidian-900 text-slate-300 border border-slate-800">📖 In-App Web Reader</span>
+              <span class="px-2.5 py-1 rounded-lg bg-obsidian-900 text-slate-300 border border-slate-800">👀 Chapter 0 Preview</span>
+              <span class="px-2.5 py-1 rounded-lg bg-obsidian-900 text-slate-300 border border-slate-800">⚡ Instant PDF/EPUB</span>
+            </div>
+          </div>
+
+          <!-- Card 3: Online Courses & Academies -->
+          <div class="glass-card hover:glass-card-glow rounded-3xl p-6 sm:p-8 transition-all duration-300 group border border-slate-800/80 hover:border-mint-400/30">
+            <div class="flex items-start justify-between">
+              <div class="w-12 h-12 rounded-2xl bg-forest-800/80 border border-mint-400/20 text-2xl flex items-center justify-center group-hover:scale-110 transition-transform">
+                🎓
+              </div>
+              <span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-slate-800 text-slate-300 border border-slate-700">Knowledge & Education</span>
+            </div>
+            
+            <h3 class="mt-5 text-xl font-bold text-white group-hover:text-mint-300 transition-colors">
+              Online Courses, Academies & Mentors
+            </h3>
+            <p class="mt-2 text-sm text-slate-400 leading-relaxed">
+              Structured video lesson modules, instructor profiles, student progress tracking, curriculum streaming powered by our 20 GB CDN, and downloadable completion certificates.
+            </p>
+
+            <div class="mt-6 pt-5 border-t border-slate-800/80 flex flex-wrap gap-2 text-xs">
+              <span class="px-2.5 py-1 rounded-lg bg-obsidian-900 text-slate-300 border border-slate-800">🎬 Video Lessons</span>
+              <span class="px-2.5 py-1 rounded-lg bg-obsidian-900 text-slate-300 border border-slate-800">📊 Student Progress</span>
+              <span class="px-2.5 py-1 rounded-lg bg-obsidian-900 text-slate-300 border border-slate-800">🏆 Certificates</span>
+            </div>
+          </div>
+
+          <!-- Card 4: Software, Tech & Digital Assets -->
+          <div class="glass-card hover:glass-card-glow rounded-3xl p-6 sm:p-8 transition-all duration-300 group border border-slate-800/80 hover:border-mint-400/30">
+            <div class="flex items-start justify-between">
+              <div class="w-12 h-12 rounded-2xl bg-forest-800/80 border border-mint-400/20 text-2xl flex items-center justify-center group-hover:scale-110 transition-transform">
+                💻
+              </div>
+              <span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-slate-800 text-slate-300 border border-slate-700">Software & Downloads</span>
+            </div>
+            
+            <h3 class="mt-5 text-xl font-bold text-white group-hover:text-mint-300 transition-colors">
+              Software, Tech & Digital Assets
+            </h3>
+            <p class="mt-2 text-sm text-slate-400 leading-relaxed">
+              Automated software license key generation, protected expiring download links, release versioning, and instant payment fulfillment through Stripe, PayPal, or crypto.
+            </p>
+
+            <div class="mt-6 pt-5 border-t border-slate-800/80 flex flex-wrap gap-2 text-xs">
+              <span class="px-2.5 py-1 rounded-lg bg-obsidian-900 text-slate-300 border border-slate-800">🔑 Auto License Keys</span>
+              <span class="px-2.5 py-1 rounded-lg bg-obsidian-900 text-slate-300 border border-slate-800">🔒 Expiring URLs</span>
+              <span class="px-2.5 py-1 rounded-lg bg-obsidian-900 text-slate-300 border border-slate-800">📦 Digital Staging</span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 4. Core Platform Superpowers (6-Grid Feature Cards) -->
+    <section id="features" class="py-20 md:py-28 relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-3xl mx-auto mb-16">
+          <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-forest-900/60 border border-forest-700 text-xs font-semibold text-mint-400 mb-3">
+            <span>Built-in Capabilities</span>
+          </div>
+          <h2 class="font-display text-2xl sm:text-4xl font-extrabold text-white tracking-tight">
+            Six Built-In Superpowers That Replace 8 Different Subscriptions
+          </h2>
+          <p class="mt-3 text-sm sm:text-base text-slate-400">
+            No expensive third-party plugins, no developer maintenance bills, and no hidden add-ons. Everything you need lives inside your Merchly console.
+          </p>
+        </div>
+
+        <!-- 6-Grid Feature Cards -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          
+          <!-- Feature 1: PWA -->
+          <div class="glass-card rounded-2xl p-6 border border-slate-800 hover:border-mint-400/40 transition-all hover:-translate-y-1">
+            <div class="w-11 h-11 rounded-xl bg-forest-800/80 text-mint-400 flex items-center justify-center text-xl mb-4 border border-forest-600/50">
+              ⚡
+            </div>
+            <h3 class="text-lg font-bold text-white mb-2">1-Tap PWA App Installation</h3>
+            <p class="text-sm text-slate-400 leading-relaxed">
+              Turn your storefront into a native-grade home screen app without 30% App Store fees, developer accounts, or lengthy approval reviews.
+            </p>
+          </div>
+
+          <!-- Feature 2: 20 GB Storage -->
+          <div class="glass-card rounded-2xl p-6 border border-slate-800 hover:border-mint-400/40 transition-all hover:-translate-y-1">
+            <div class="w-11 h-11 rounded-xl bg-forest-800/80 text-mint-400 flex items-center justify-center text-xl mb-4 border border-forest-600/50">
+              ☁️
+            </div>
+            <h3 class="text-lg font-bold text-white mb-2">20 GB High-Speed Storage</h3>
+            <p class="text-sm text-slate-400 leading-relaxed">
+              Lightning-fast edge CDN delivery for course videos, digital downloads, high-resolution photo galleries, and customer files.
+            </p>
+          </div>
+
+          <!-- Feature 3: 0% Fees -->
+          <div class="glass-card rounded-2xl p-6 border border-slate-800 hover:border-mint-400/40 transition-all hover:-translate-y-1">
+            <div class="w-11 h-11 rounded-xl bg-forest-800/80 text-mint-400 flex items-center justify-center text-xl mb-4 border border-forest-600/50">
+              💳
+            </div>
+            <h3 class="text-lg font-bold text-white mb-2">0% Platform Fees (Keep 100%)</h3>
+            <p class="text-sm text-slate-400 leading-relaxed">
+              Keep every cent you earn. Connect your own Stripe or PayPal account directly. Zero transaction cuts and zero surprise take-rates.
+            </p>
+          </div>
+
+          <!-- Feature 4: Offline Mode -->
+          <div id="offline" class="glass-card rounded-2xl p-6 border border-slate-800 hover:border-mint-400/40 transition-all hover:-translate-y-1">
+            <div class="w-11 h-11 rounded-xl bg-forest-800/80 text-mint-400 flex items-center justify-center text-xl mb-4 border border-forest-600/50">
+              🔄
+            </div>
+            <h3 class="text-lg font-bold text-white mb-2 flex items-center gap-2">
+              <span>Seamless Offline Mode</span>
+              <span class="text-[10px] bg-mint-400/20 text-mint-400 px-1.5 py-0.5 rounded font-mono font-normal">Patented</span>
+            </h3>
+            <p class="text-sm text-slate-400 leading-relaxed">
+              Sell at pop-ups, markets, or in rural areas. Manage inventory, edit catalog items, and record orders even without active cellular service.
+            </p>
+          </div>
+
+          <!-- Feature 5: Receipts & Automation -->
+          <div class="glass-card rounded-2xl p-6 border border-slate-800 hover:border-mint-400/40 transition-all hover:-translate-y-1">
+            <div class="w-11 h-11 rounded-xl bg-forest-800/80 text-mint-400 flex items-center justify-center text-xl mb-4 border border-forest-600/50">
+              ✉️
+            </div>
+            <h3 class="text-lg font-bold text-white mb-2">Instant Itemized Receipts</h3>
+            <p class="text-sm text-slate-400 leading-relaxed">
+              Automated, professional branded email receipts, download keys, and carrier tracking links dispatched the exact instant an order completes.
+            </p>
+          </div>
+
+          <!-- Feature 6: Custom Domains & SSL -->
+          <div class="glass-card rounded-2xl p-6 border border-slate-800 hover:border-mint-400/40 transition-all hover:-translate-y-1">
+            <div class="w-11 h-11 rounded-xl bg-forest-800/80 text-mint-400 flex items-center justify-center text-xl mb-4 border border-forest-600/50">
+              🌐
+            </div>
+            <h3 class="text-lg font-bold text-white mb-2">Custom Domains & Free SSL</h3>
+            <p class="text-sm text-slate-400 leading-relaxed">
+              Connect your domain (yourbrand.com) with automated Cloudflare SSL certificates, or enjoy a free *.merchlystore.com subdomain for life.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 5. "Merchly vs Traditional Desktop Builders" (Comparison Table) -->
+    <section id="comparison" class="py-20 bg-obsidian-950/70 border-t border-b border-slate-800/60 relative">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-2xl mx-auto mb-14">
+          <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-forest-900/60 border border-forest-700 text-xs font-semibold text-mint-400 mb-3">
+            <span>Why Switch</span>
+          </div>
+          <h2 class="font-display text-2xl sm:text-4xl font-extrabold text-white tracking-tight">
+            Merchly vs. Traditional Desktop Builders
+          </h2>
+          <p class="mt-3 text-sm sm:text-base text-slate-400">
+            See how modern mobile-first architecture outperforms legacy platforms on cost, speed, and creator retention.
+          </p>
+        </div>
+
+        <!-- Comparison Table Container -->
+        <div class="overflow-x-auto no-scrollbar rounded-3xl border border-slate-800 bg-obsidian-900/90 shadow-2xl">
+          <table class="w-full text-left text-sm border-collapse min-w-[620px]">
+            <thead>
+              <tr class="border-b border-slate-800 bg-obsidian-950/80">
+                <th class="p-5 font-semibold text-slate-400 w-2/5">Platform Feature</th>
+                <th class="p-5 font-bold text-mint-400 bg-forest-900/40 border-l border-r border-slate-800/80 w-2/5">
+                  <div class="flex items-center gap-2">
+                    <span class="w-2.5 h-2.5 rounded-full bg-mint-400"></span>
+                    <span class="text-base text-white">Merchly</span>
+                    <span class="text-[10px] bg-mint-400 text-obsidian-950 px-1.5 py-0.5 rounded font-extrabold">RECOMMENDED</span>
+                  </div>
+                </th>
+                <th class="p-5 font-semibold text-slate-400 w-1/5">Shopify / Gumroad</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-800/70 text-slate-300">
+              
+              <!-- Row 1: Take-Rate -->
+              <tr class="hover:bg-slate-800/30 transition-colors">
+                <td class="p-5 font-medium text-white">
+                  <div>Platform Take-Rate</div>
+                  <div class="text-xs text-slate-400">Transaction fees on every sale</div>
+                </td>
+                <td class="p-5 bg-forest-900/20 border-l border-r border-slate-800/80 font-bold text-mint-400">
+                  <div class="flex items-center gap-1.5 text-base">
+                    <span>0% Fee</span>
+                    <span class="text-xs font-normal text-slate-300">(You keep 100%)</span>
+                  </div>
+                </td>
+                <td class="p-5 text-slate-400">
+                  2% to 10% + $0.30 per sale
+                </td>
+              </tr>
+
+              <!-- Row 2: Management Device -->
+              <tr class="hover:bg-slate-800/30 transition-colors">
+                <td class="p-5 font-medium text-white">
+                  <div>Mobile Management</div>
+                  <div class="text-xs text-slate-400">Where you can update and run your shop</div>
+                </td>
+                <td class="p-5 bg-forest-900/20 border-l border-r border-slate-800/80 font-bold text-white">
+                  <div class="flex items-center gap-2">
+                    <span class="text-mint-400">✓</span>
+                    <span>100% Phone-Native Console</span>
+                  </div>
+                </td>
+                <td class="p-5 text-slate-400">
+                  Clunky Desktop-First Dashboards
+                </td>
+              </tr>
+
+              <!-- Row 3: Free Cloud Storage -->
+              <tr class="hover:bg-slate-800/30 transition-colors">
+                <td class="p-5 font-medium text-white">
+                  <div>High-Speed Edge Storage</div>
+                  <div class="text-xs text-slate-400">For courses, files, and high-res media</div>
+                </td>
+                <td class="p-5 bg-forest-900/20 border-l border-r border-slate-800/80 font-bold text-white">
+                  <div class="flex items-center gap-2">
+                    <span class="text-mint-400">✓</span>
+                    <span>20 GB Included Free</span>
+                  </div>
+                </td>
+                <td class="p-5 text-slate-400">
+                  Extra Monthly Surcharges
+                </td>
+              </tr>
+
+              <!-- Row 4: Customer PWA Install -->
+              <tr class="hover:bg-slate-800/30 transition-colors">
+                <td class="p-5 font-medium text-white">
+                  <div>Customer App Install</div>
+                  <div class="text-xs text-slate-400">How buyers save your store to their homescreen</div>
+                </td>
+                <td class="p-5 bg-forest-900/20 border-l border-r border-slate-800/80 font-bold text-white">
+                  <div class="flex items-center gap-2">
+                    <span class="text-mint-400">✓</span>
+                    <span>Instant 1-Tap PWA (No 30% Fee)</span>
+                  </div>
+                </td>
+                <td class="p-5 text-slate-400">
+                  Requires Custom $5K+ App Dev
+                </td>
+              </tr>
+
+              <!-- Row 5: Offline Mode -->
+              <tr class="hover:bg-slate-800/30 transition-colors">
+                <td class="p-5 font-medium text-white">
+                  <div>Offline Operation</div>
+                  <div class="text-xs text-slate-400">Ability to work without cellular data</div>
+                </td>
+                <td class="p-5 bg-forest-900/20 border-l border-r border-slate-800/80 font-bold text-mint-400">
+                  <div class="flex items-center gap-2">
+                    <span>Full Offline Mode & Local Cache</span>
+                  </div>
+                </td>
+                <td class="p-5 text-slate-400">
+                  Fails Completely Offline
+                </td>
+              </tr>
+
+              <!-- Row 6: Annual Creator Savings (Highlight) -->
+              <tr class="bg-forest-950/60 font-bold border-t-2 border-mint-400/40">
+                <td class="p-5 text-white">
+                  <div class="text-base">Annual Creator Savings</div>
+                  <div class="text-xs text-mint-300 font-normal">Based on $2,500/mo store volume</div>
+                </td>
+                <td class="p-5 bg-forest-900/50 border-l border-r border-slate-800/80 text-mint-400 text-lg">
+                  Save $348 to $2,400+ Every Year
+                </td>
+                <td class="p-5 text-slate-400">
+                  Lost to Take-Rates & Plugins
+                </td>
+              </tr>
+
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 6. Bottom High-Impact Call-to-Action Banner -->
+    <section class="py-20 md:py-28 relative overflow-hidden">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="relative rounded-3xl p-8 sm:p-14 overflow-hidden bg-gradient-to-br from-forest-900 via-obsidian-800 to-obsidian-950 border border-mint-400/30 glow-emerald text-center">
+          
+          <!-- Background Accent Details -->
+          <div class="absolute -right-20 -top-20 w-80 h-80 rounded-full bg-mint-400/15 blur-3xl pointer-events-none"></div>
+          <div class="absolute -left-20 -bottom-20 w-80 h-80 rounded-full bg-forest-800/40 blur-3xl pointer-events-none"></div>
+
+          <div class="relative z-10 max-w-2xl mx-auto">
+            <span class="inline-block px-3 py-1 rounded-full bg-mint-400/20 text-mint-400 text-xs font-bold tracking-wide uppercase mb-4 border border-mint-400/30">
+              Ready to take control of your commerce?
+            </span>
+            
+            <h2 class="font-display text-3xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight">
+              Ready to Launch Your Storefront Today?
+            </h2>
+            
+            <p class="mt-4 text-sm sm:text-base text-slate-300 leading-relaxed">
+              Start your 7-day free trial now. Full access to all storefront themes, 20 GB cloud storage, and direct mobile controls. Cancel anytime in 1 tap.
+            </p>
+
+            <!-- Buttons -->
+            <div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
+              <a href="https://jobreadypro.co" class="w-full sm:w-auto glow-mint-btn inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-xl bg-mint-400 text-obsidian-950 font-extrabold text-base tracking-wide shadow-xl">
+                <span>Launch Your Store Now</span>
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+                </svg>
+              </a>
+
+              <a href="https://play.google.com/store/apps/details?id=com.merchly.app" class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-6 py-4 rounded-xl bg-obsidian-900/90 hover:bg-obsidian-800 text-slate-200 border border-slate-700 hover:border-slate-500 font-semibold text-sm transition-all">
+                <svg class="w-5 h-5 text-mint-400" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M3.609 1.814L13.792 12 3.61 22.186a1.996 1.996 0 0 1-.61-.925V2.74c0-.356.216-.688.61-.926zM15.207 13.414l2.766-2.766a2.003 2.003 0 0 0 0-2.828l-2.766-2.766 5.864 3.393c1.238.716 1.238 2.553 0 3.268l-5.864 3.699z"/>
+                </svg>
+                <span>Google Play App</span>
+              </a>
+            </div>
+
+            <!-- Guarantee line -->
+            <div class="mt-6 flex items-center justify-center gap-3 text-xs text-slate-400">
+              <span class="flex items-center gap-1">
+                <svg class="w-4 h-4 text-mint-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                7 Days Free
+              </span>
+              <span>•</span>
+              <span class="flex items-center gap-1">
+                <svg class="w-4 h-4 text-mint-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                No Lock-In Contract
+              </span>
+              <span>•</span>
+              <span class="flex items-center gap-1">
+                <svg class="w-4 h-4 text-mint-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                Instant PWA Setup
+              </span>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- 7. Comprehensive Compliance & Navigation Footer (Critical for Google Play Approval) -->
+  <footer class="bg-obsidian-950 border-t border-slate-800 text-slate-400 text-sm relative z-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-12">
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-slate-800/80">
+        
+        <!-- Left Brand & Description (2 cols on lg) -->
+        <div class="lg:col-span-2">
+          <div class="flex items-center gap-2.5">
+            <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-forest-800 to-mint-400 flex items-center justify-center p-0.5">
+              <div class="w-full h-full bg-obsidian-900 rounded-[10px] flex items-center justify-center">
+                <svg class="w-4 h-4 text-mint-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                  <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/>
+                  <path d="M3 6h18"/>
+                  <path d="M16 10a4 4 0 0 1-8 0"/>
+                </svg>
+              </div>
+            </div>
+            <span class="font-display font-bold text-xl text-white">Merchly</span>
+          </div>
+
+          <p class="mt-4 text-slate-400 text-sm max-w-sm leading-relaxed">
+            Commerce in your pocket. The ultra-fast, 0% platform fee mobile storefront engine empowering modern independent creators worldwide.
+          </p>
+
+          <div class="mt-5 text-xs text-slate-500">
+            <p>© 2026 Merchly. Operated by <span class="text-slate-400 font-medium">EireneHealth Ltd</span>.</p>
+            <p class="mt-0.5">All rights reserved.</p>
+          </div>
+
+          <!-- Trust Badges (Required for Play Console & Merchant Trust) -->
+          <div class="mt-6 flex flex-wrap gap-2 text-[11px] text-slate-300 font-medium">
+            <span class="px-2.5 py-1 rounded-md bg-obsidian-900 border border-slate-800 flex items-center gap-1.5">
+              <span class="text-mint-400">🔒</span> 256-bit SSL Encryption
+            </span>
+            <span class="px-2.5 py-1 rounded-md bg-obsidian-900 border border-slate-800 flex items-center gap-1.5">
+              <span class="text-emerald-400">⚡</span> Powered by Supabase Auth
+            </span>
+            <span class="px-2.5 py-1 rounded-md bg-obsidian-900 border border-slate-800 flex items-center gap-1.5">
+              <span class="text-blue-400">🛡️</span> Google Play Verified
+            </span>
+          </div>
+        </div>
+
+        <!-- Col 2: Product -->
+        <div>
+          <h4 class="font-semibold text-white text-sm tracking-wider uppercase mb-4">Product</h4>
+          <ul class="space-y-2.5 text-sm">
+            <li><a href="#features" class="hover:text-mint-400 transition-colors">Core Features</a></li>
+            <li><a href="#storefronts" class="hover:text-mint-400 transition-colors">Storefront Themes</a></li>
+            <li><a href="#offline" class="hover:text-mint-400 transition-colors flex items-center gap-1.5"><span>Offline Engine</span><span class="w-1.5 h-1.5 rounded-full bg-mint-400"></span></a></li>
+            <li><a href="#comparison" class="hover:text-mint-400 transition-colors">Pricing & Savings</a></li>
+            <li><a href="https://jobreadypro.co" class="hover:text-mint-400 transition-colors">Web App Console</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Creators -->
+        <div>
+          <h4 class="font-semibold text-white text-sm tracking-wider uppercase mb-4">For Creators</h4>
+          <ul class="space-y-2.5 text-sm">
+            <li><a href="#storefronts" class="hover:text-mint-400 transition-colors">Fashion & Apparel</a></li>
+            <li><a href="#storefronts" class="hover:text-mint-400 transition-colors">Authors & E-Books</a></li>
+            <li><a href="#storefronts" class="hover:text-mint-400 transition-colors">Course Instructors</a></li>
+            <li><a href="#storefronts" class="hover:text-mint-400 transition-colors">Digital Software</a></li>
+            <li><a href="https://jobreadypro.co" class="hover:text-mint-400 transition-colors">Live Storefronts</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Legal & Play Console Compliance -->
+        <div>
+          <h4 class="font-semibold text-white text-sm tracking-wider uppercase mb-4">Legal & Privacy</h4>
+          <ul class="space-y-2.5 text-sm">
+            <li>
+              <a href="privacy.html" class="hover:text-mint-400 transition-colors flex items-center gap-1.5">
+                <span>Privacy Policy</span>
+                <span class="text-[10px] text-slate-500 font-mono">play-policy</span>
+              </a>
+            </li>
+            <li>
+              <a href="terms.html" class="hover:text-mint-400 transition-colors">Terms of Service</a>
+            </li>
+            <li>
+              <a href="delete-account.html" class="hover:text-red-400 transition-colors flex items-center gap-1.5">
+                <span class="text-red-400">⚠️</span>
+                <span>Request Account & Data Deletion</span>
+              </a>
+            </li>
+            <li>
+              <a href="mailto:support@merchlystore.com" class="hover:text-mint-400 transition-colors flex items-center gap-1">
+                <span>Contact:</span>
+                <span class="text-slate-300">support@merchlystore.com</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Bottom Bar -->
+      <div class="mt-8 pt-4 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+        <div>
+          <span>Merchly Platform v2.4 • Built for mobile entrepreneurs worldwide.</span>
+        </div>
+        <div class="flex items-center gap-6">
+          <a href="privacy.html" class="hover:text-slate-300">Privacy</a>
+          <a href="terms.html" class="hover:text-slate-300">Terms</a>
+          <a href="delete-account.html" class="hover:text-slate-300">Data Deletion</a>
+          <a href="https://toro45.github.io/merchly/" class="text-mint-400 hover:underline">toro45.github.io/merchly</a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
 </body>
 </html>
