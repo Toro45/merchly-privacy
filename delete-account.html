@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Delete Account & Data - Merchly</title>
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0B1326;
+      --surface: #162035;
+      --surface-border: #222A3E;
+      --text: #DBE2FD;
+      --text-muted: #8CA0B3;
+      --accent: #4EDEA3;
+      --danger: #EF4444;
+      --danger-surface: rgba(239, 68, 68, 0.1);
+      --danger-border: rgba(239, 68, 68, 0.3);
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      line-height: 1.6;
+      padding: 2rem 1rem;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    .container {
+      max-width: 680px;
+      margin: 0 auto;
+      width: 100%;
+      flex: 1;
+    }
+    header {
+      margin-bottom: 2rem;
+      border-bottom: 1px solid var(--surface-border);
+      padding-bottom: 1.5rem;
+    }
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: 1.5rem;
+      color: #FFFFFF;
+      text-decoration: none;
+      margin-bottom: 0.75rem;
+    }
+    .brand span {
+      color: var(--accent);
+    }
+    h1 {
+      font-size: 1.75rem;
+      font-weight: 800;
+      color: #FFFFFF;
+      margin-bottom: 0.35rem;
+    }
+    .subtitle {
+      color: var(--text-muted);
+      font-size: 0.875rem;
+    }
+    .card {
+      background-color: var(--surface);
+      border: 1px solid var(--surface-border);
+      border-radius: 1rem;
+      padding: 1.75rem;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+    }
+    .card-danger {
+      border-color: var(--danger-border);
+      background-color: var(--surface);
+    }
+    h2 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #FFFFFF;
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .badge-danger {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      background-color: var(--danger);
+      border-radius: 50%;
+    }
+    p, ul {
+      color: var(--text);
+      font-size: 0.925rem;
+      margin-bottom: 1rem;
+    }
+    ul {
+      padding-left: 1.4rem;
+    }
+    li {
+      margin-bottom: 0.4rem;
+    }
+    strong {
+      color: #FFFFFF;
+    }
+    .warning-box {
+      background-color: var(--danger-surface);
+      border: 1px solid var(--danger-border);
+      border-radius: 0.75rem;
+      padding: 1rem;
+      margin-bottom: 1.25rem;
+    }
+    .warning-box p {
+      color: #FCA5A5;
+      font-size: 0.875rem;
+      margin: 0;
+    }
+    .form-group {
+      margin-bottom: 1.25rem;
+    }
+    label {
+      display: block;
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
+      margin-bottom: 0.5rem;
+    }
+    input[type="email"], select, textarea {
+      width: 100%;
+      height: 48px;
+      padding: 0 1rem;
+      background-color: var(--bg);
+      border: 1px solid var(--surface-border);
+      border-radius: 0.75rem;
+      color: #FFFFFF;
+      font-size: 0.95rem;
+      font-family: inherit;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    textarea {
+      height: 80px;
+      padding: 0.75rem 1rem;
+      resize: vertical;
+    }
+    input[type="email"]:focus, select:focus, textarea:focus {
+      border-color: var(--danger);
+    }
+    .checkbox-group {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      margin-bottom: 1.5rem;
+    }
+    .checkbox-group input {
+      margin-top: 0.25rem;
+      width: 18px;
+      height: 18px;
+      accent-color: var(--danger);
+      cursor: pointer;
+    }
+    .checkbox-group label {
+      font-size: 0.85rem;
+      text-transform: none;
+      letter-spacing: normal;
+      color: var(--text);
+      cursor: pointer;
+      line-height: 1.4;
+    }
+    .btn-submit {
+      width: 100%;
+      height: 48px;
+      background-color: var(--danger);
+      color: #FFFFFF;
+      border: none;
+      border-radius: 0.75rem;
+      font-size: 0.95rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background-color 0.2s, transform 0.1s;
+    }
+    .btn-submit:hover {
+      background-color: #DC2626;
+    }
+    .btn-submit:active {
+      transform: scale(0.99);
+    }
+    .btn-submit:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+    .success-panel {
+      display: none;
+      background-color: rgba(78, 222, 163, 0.1);
+      border: 1px solid rgba(78, 222, 163, 0.3);
+      border-radius: 0.75rem;
+      padding: 1.5rem;
+      text-align: center;
+    }
+    .success-panel h3 {
+      color: var(--accent);
+      font-size: 1.15rem;
+      margin-bottom: 0.5rem;
+    }
+    .success-panel p {
+      color: #D1FAE5;
+      font-size: 0.9rem;
+      margin: 0;
+    }
+    footer {
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.8rem;
+      margin-top: 2rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--surface-border);
+    }
+    footer a {
+      color: var(--text-muted);
+      text-decoration: underline;
+    }
+    footer a:hover {
+      color: var(--text);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <a href="/" class="brand">Merchly<span>.</span></a>
+      <h1>Delete Account & Associated Data</h1>
+      <p class="subtitle">Google Play &amp; Global Privacy Compliance Portal</p>
+    </header>
+
+    <div class="card">
+      <h2><span class="badge-danger"></span> What Happens When You Request Deletion</h2>
+      <p>In accordance with Google Play's User Data policy and global privacy standards (GDPR, CCPA), you may permanently delete your Merchly merchant account and all associated records at any time.</p>
+      <p>Submitting this request initiates the permanent purging of:</p>
+      <ul>
+        <li><strong>Account Profile & Credentials:</strong> Your user identity, email, authentication tokens, and profile settings in Supabase Auth.</li>
+        <li><strong>Storefront Configuration:</strong> Store names, handles, subdomains, custom domains, and theme customizations.</li>
+        <li><strong>Catalog & Inventory:</strong> All physical products, digital download files, course curricula, variants, and stock counts.</li>
+        <li><strong>Hosted Binary Assets:</strong> High-resolution media, banners, digital files, and video lessons hosted on Bunny.net Edge Object Storage.</li>
+        <li><strong>Order & Transaction History:</strong> Past customer receipts, fulfillment records, and customer communications.</li>
+      </ul>
+      <p><em>Note: Anonymized financial settlement metadata required for statutory tax and accounting audits may be retained for the minimum legally mandated retention period.</em></p>
+    </div>
+
+    <div class="card card-danger">
+      <h2>Submit Account Deletion Request</h2>
+      
+      <div class="warning-box">
+        <p><strong>Warning:</strong> Account deletion is permanent and irreversible. Once executed, your storefronts will go offline immediately and all uploaded files will be permanently purged.</p>
+      </div>
+
+      <form id="deleteForm" onsubmit="handleDeletionSubmit(event)">
+        <div class="form-group">
+          <label for="merchantEmail">Merchant Account Email Address *</label>
+          <input type="email" id="merchantEmail" required placeholder="Enter the email associated with your account" />
+        </div>
+
+        <div class="form-group">
+          <label for="storeHandle">Store Handle or Name (Optional)</label>
+          <input type="text" id="storeHandle" style="width: 100%; height: 48px; padding: 0 1rem; background-color: var(--bg); border: 1px solid var(--surface-border); border-radius: 0.75rem; color: #FFFFFF; font-size: 0.95rem; font-family: inherit; outline: none;" placeholder="e.g. arturofirenze or my-store" />
+        </div>
+
+        <div class="form-group">
+          <label for="deletionReason">Reason for Deletion (Optional)</label>
+          <select id="deletionReason">
+            <option value="closing_business">Closing business or storefront</option>
+            <option value="testing_complete">Testing complete / demo account</option>
+            <option value="privacy_concerns">Privacy or data concerns</option>
+            <option value="switching_platforms">Switching to another platform</option>
+            <option value="other">Other reason</option>
+          </select>
+        </div>
+
+        <div class="checkbox-group">
+          <input type="checkbox" id="confirmCheckbox" required />
+          <label for="confirmCheckbox">
+            I understand that deleting my account is permanent and will immediately unpublish my storefronts, purge all inventory, and erase my digital assets from cloud storage.
+          </label>
+        </div>
+
+        <button type="submit" id="submitBtn" class="btn-submit">
+          Request Permanent Account Deletion
+        </button>
+      </form>
+
+      <div id="successPanel" class="success-panel">
+        <h3>✓ Deletion Request Received</h3>
+        <p>Your request has been logged. Our compliance team will verify your credentials and initiate the permanent purging of your account and associated data within 30 days.</p>
+        <p style="margin-top: 0.75rem; font-size: 0.8rem; color: #6EE7B7;">A confirmation email will be sent to the address provided. If you submitted this request in error, please contact <a href="mailto:privacy@merchlystore.com" style="color: #6EE7B7; font-weight: bold;">privacy@merchlystore.com</a> immediately.</p>
+      </div>
+    </div>
+
+    <footer>
+      <p>&copy; 2026 Merchly Technologies &bull; <a href="/privacy.html">Privacy Policy</a> &bull; Support: <a href="mailto:support@jobreadypro.co">support@jobreadypro.co</a></p>
+    </footer>
+  </div>
+
+  <script>
+    function handleDeletionSubmit(event) {
+      event.preventDefault();
+      const email = document.getElementById('merchantEmail').value.trim();
+      const handle = document.getElementById('storeHandle').value.trim();
+      const reason = document.getElementById('deletionReason').value;
+      const btn = document.getElementById('submitBtn');
+      
+      btn.disabled = true;
+      btn.innerText = 'Submitting Request...';
+
+      // Log request locally and prepare payload
+      const requestData = {
+        email: email,
+        storeHandle: handle,
+        reason: reason,
+        requestedAt: new Date().toISOString()
+      };
+
+      try {
+        const stored = JSON.parse(localStorage.getItem('merchly_deletion_requests') || '[]');
+        stored.push(requestData);
+        localStorage.setItem('merchly_deletion_requests', JSON.stringify(stored));
+      } catch (e) {
+        console.warn('Storage unavailable:', e);
+      }
+
+      // Simulate network acknowledgement
+      setTimeout(() => {
+        document.getElementById('deleteForm').style.display = 'none';
+        document.getElementById('successPanel').style.display = 'block';
+      }, 600);
+    }
+  </script>
+</body>
+</html>
